@@ -1,0 +1,15 @@
+# 统一换行符,避免 Windows / macOS / Linux 相互拉取时把启动脚本弄坏。
+* text=auto
+
+# .bat 必须是 CRLF,老版本 cmd.exe 对 LF 的容忍度不如现代的。
+*.bat text eol=crlf
+
+# macOS / Linux 的启动脚本必须是 LF,否则 shebang 会带 \r 而执行失败。
+*.command text eol=lf
+*.sh text eol=lf
+
+# 代码和文档统一 LF。
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf

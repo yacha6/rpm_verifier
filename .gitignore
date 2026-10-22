@@ -1,0 +1,26 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+
+# ---- IDE ----
+.idea/
+.vscode/
+
+# ---- 构建产物 / 本地分发包 ----
+dist/
+build/
+*.zip
+
+# ---- 本地日志 ----
+*.log
+
+# ---- 本地 SSH key(仅用于推送,绝不提交)----
+.ssh/
