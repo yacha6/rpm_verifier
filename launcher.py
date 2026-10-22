@@ -291,6 +291,14 @@ def run_selftest(python: Path) -> int:
     say("=" * 56)
     say()
 
+    # tests/ 只在开发机本地保留,不进 GitHub。从仓库 clone 的目录、
+    # 或在不带 tests/ 的机器上构建的包,都没有这个目录。直接跑 pytest
+    # 会得到一句 pytest 的 "file or directory not found",对同事毫无帮助。
+    if not (PACKAGE_DIR / "tests").is_dir():
+        say("✗ 当前目录不含 tests/,无法自检。")
+        say("  tests/ 只在开发机本地保留;请在有 tests/ 的开发机上运行测试。")
+        return EXIT_ENV_ERROR
+
     if not install_deps(python, extra=("pytest",)):
         return EXIT_ENV_ERROR
 

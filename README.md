@@ -155,7 +155,10 @@ py -3.12 -m venv .venv
 `.../v1/images/generations/chat/completions`,然后 404,而错误提示还在说
 「请检查模型名是否正确」,把人往完全错误的方向带。
 
-## 测试
+## 测试(仅开发机本地)
+
+`tests/` **不纳入 GitHub 仓库**(已在 `.gitignore` 中),只在开发机上保留。
+这样仓库目录更干净,但自动回归测试仍然可用:
 
 ```bash
 # macOS / Linux
@@ -169,12 +172,8 @@ py -3.12 -m venv .venv
 请求体、源素材解析(URL / Data URI / 本地文件)、计划量、原始报错回传、
 实时数字刷新规则,以及端到端 HTTP 链路。
 
-分发包里也可以直接自检(会自动补装 pytest):
-
-```
-Windows:  启动.bat --selftest
-macOS:    python3 launcher.py --selftest
-```
+如果你在**有 tests/ 的开发机**上构建分发包,包内会带上测试,同事可以用
+`--selftest` 自检;从 GitHub 直接 clone 的目录没有 tests/,因此不提供该自检。
 
 ## 项目结构
 
