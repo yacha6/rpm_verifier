@@ -9,7 +9,7 @@
 ## 从 GitHub 拉下来
 
 ```bash
-git clone <仓库地址>
+git clone https://github.com/yacha6/rpm_verifier.git
 cd rpm_verifier
 
 # macOS / Linux
